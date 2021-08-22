@@ -1,6 +1,5 @@
 import os
 import hashlib
-import pyperclip
 from PIL import Image
 import base64
 from termcolor import colored
@@ -12,7 +11,7 @@ print('''for the nerds, this uses SHA-224
 
 print(colored('''This program basically does the EXACT SAME thing Apple's new CSAM detection project will.
 I created it to show you just how stupid the implementation is, and further your knowledge
-so you can sniff out bullshit like this in the future.
+so you can sniff out BS like this in the future.
 
 (For most prompts, y = Yes and n = No)
 
@@ -24,9 +23,6 @@ def imghasher():
             b64string = base64.b64encode(image.read()).decode('ASCII')
             Hash = hashlib.sha224(str(b64string).encode('utf-8')).hexdigest()
             print(colored('Your image hash value is:'), colored(Hash, 'red'))
-            pasteorno = input('Would you like to copy that to the clipboard?: ')
-            if pasteorno.lower() == 'y':
-                pyperclip.copy(Hash)
             again = input('Would you like to hash again? ')
             if again.upper() == 'Y':
                 imghasher()
@@ -50,7 +46,7 @@ def isSame():
         else:
             print(colored('ERROR: HASH VALUES DO NOT MATCH, UNDERLYING CONTENTS ARE DIFFERENT.', 'red'))
 
-    again = input('Would you like to compare 2 values again?: ')
+    again = input('Would you like to compare two values again?: ')
     if again.lower() == 'y':
         isSame()
     else:
@@ -96,9 +92,9 @@ This will basically compare the two hash values to see if they're the same
 Going back to the forensics explanation in the image hashser, on the court date they'd use an application like this
 to demonstrate the first hash value (created at first collection) and second hash value (created on court day)
 are the exact same. If the underlying hard drive is the EXACT SAME (bit-for-bit), the hash values will be the same,
-and this program will say so. This is practically the exact same thing Apple check your image hash against the 
-hashes of confirmed and verified images of child abuse. God, imagine being the person who has to verify images
-of child abuse.
+and this program will say so. This is practically the exact same thing Apple will use to check your image hashes 
+against the hashes of known and verified images of child abuse. God, imagine being the person who has 
+to verify images of child abuse.
     ''', 'green'))
 
         isSame()
