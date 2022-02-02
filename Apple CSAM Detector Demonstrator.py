@@ -9,9 +9,7 @@ os.system('color')
 print('''for the nerds, this uses SHA-224
 ''')
 
-print(colored('''This program basically does the EXACT SAME thing Apple's new CSAM detection project will.
-I created it to show you just how stupid the implementation is, and further your knowledge
-so you can sniff out BS like this in the future.
+print(colored('''This program was created with the intention of showing how ineffective Apple's CSAM detection is.
 
 (For most prompts, y = Yes and n = No)
 
@@ -93,8 +91,7 @@ Going back to the forensics explanation in the image hashser, on the court date 
 to demonstrate the first hash value (created at first collection) and second hash value (created on court day)
 are the exact same. If the underlying hard drive is the EXACT SAME (bit-for-bit), the hash values will be the same,
 and this program will say so. This is practically the exact same thing Apple will use to check your image hashes 
-against the hashes of known and verified images of child abuse. God, imagine being the person who has 
-to verify images of child abuse.
+against the hashes of known and verified images of child abuse.
     ''', 'green'))
 
         isSame()
